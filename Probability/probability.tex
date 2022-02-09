@@ -330,6 +330,207 @@ and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likel
 \item X+Y and X-Y 
 \end{enumerate}
 \end{enumerate}
+Question 53) Suppose (X,Y) follows bivariate normal distribution with means $\mu1  \mu2$, standard deviations $\sigma1$,$\sigma2$ and correlation coefficient $\rho$, where all parameters are un-known. Then, testing Ho: $\sigma1=\sigma2$ is equivalent to testing the independence of  
+\\
+1.) X and Y \\
+2.) X and X-Y \\
+3.) X+Y and Y \\
+4.) X+Y and X-Y \\
+
+Answer: 4, X+Y and X-Y \\
+\section{Solution:} 
+\subsection{Definition of Bivariate Gaussian and its independency}
+Bi-variate random variables are distribution of normal distribution to two coordinates. are said to be bivariate normal or jointly normal, if $aX+bY$ has normal distribution $\forall$ $a,b \in R$.
+
+Random normal vector Z =
+$\begin{bmatrix}
+ X\\
+ Y
+\end{bmatrix}$ is Bi-variate when it is jointly normal\\
+Joint PDF of Z is given as\\
+\begin{align*}
+    f_z(Z) &= \frac{1} {2\pi\sqrt{det {\Sigma}}} \quad \exp \left \{  \frac{-1}{2}(z-m) ^ T \Sigma^{-1} (z-m) \right \} \\
+    \textit{Where},\\
+    \textit{m} &= \begin{bmatrix}
+         \mu_x\\
+         \mu_y
+        \end{bmatrix}, \quad, \Sigma = \mathbf{[[Z - E(Z)] [Z - E(Z)]^T]}\\
+    \Sigma = \begin{bmatrix}
+         \sigma_{X}^2               &    \rho \sigma_{X} \sigma_{Y}\\
+         \rho \sigma_{Y} \sigma_{X}  &    \sigma_{Y}^2
+        \end{bmatrix}
+\end{align*}
+
+If X, Y, which  are independent, then they are un-correlated or their co-variances are $\rho \sigma_{Y} \sigma_{X} = 0$ then co-variance matrix becomes a diagonal matrix\\
+\begin{align*}
+    \Sigma = \begin{bmatrix}
+         \sigma_{X}^2                  &     \rho \sigma_{X} \sigma_{Y}\\
+         \rho \sigma_{Y} \sigma_{X}     &      \sigma_{Y}^2
+        \end{bmatrix} 
+        = \begin{bmatrix}
+         \sigma_{X}^2      & 0\\
+          0  & \sigma_{Y}^2
+        \end{bmatrix}
+\end{align*}\\
+\subsection{Co-variance Matrix}
+    $\Sigma = [[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T]$\\
+    \\\textit{When}, \hspace{5pt} $\mathbf{Z^{'} = TZ}$, \hspace{5pt} \textit{Where T is a transformation}\\
+\begin{align*}
+    \Sigma_{TZ} &= [[\mathbf{TZ} - E(\mathbf{TZ})][\mathbf{TZ} - E(\mathbf{TZ})]^T]\\
+    &= [[T\mathbf{Z} - T E(\mathbf{Z})][T\mathbf{Z} - TE(\mathbf{Z})]^T]\\
+    &= [T[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T T^T]\\
+    &= [T[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T T^T]\\
+    &=  [T \Sigma T^T]\\
+    \textit{Where} [[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T] = \Sigma
+\end{align*}
+\begin{equation}
+    \Sigma_{TZ} = [T \Sigma T^T]
+\end{equation}
+
+\subsection{Evaluating option 1}:
+Given $\sigma_x = \sigma_y$
+\begin{align*}
+    \Sigma = \begin{bmatrix}
+    \sigma_{X}^2              &  \rho \sigma_{X} \sigma_{X} \\
+    \rho \sigma_{X} \sigma_{X}  &   \sigma_{Y}^2 
+\end{bmatrix} = 
+    \begin{bmatrix}
+    \sigma_{X}^2          &  \rho \sigma_{X}^2 \\
+    \rho \sigma_{X}^2      &   \sigma_{X}^2 
+\end{bmatrix} = \sigma_{X}^2 
+    \begin{bmatrix}
+    1          &  \rho \\
+    \rho       &   1
+\end{bmatrix}
+\end{align*}
+$\Sigma$ is not a diagonal matrix so components of Z in option 1 are not independent
+\subsection{Evaluating option 2}
+X, X-Y can be written as
+$\begin{bmatrix}
+   1   &   0\\
+   1   &   -1
+\end{bmatrix}
+\begin{bmatrix}
+   X \\
+   Y
+\end{bmatrix}$\\
+Where T = $\begin{bmatrix}
+   1   &   0\\
+   1   &   -1
+\end{bmatrix}$, Z = $\begin{bmatrix}
+   X \\
+   Y
+\end{bmatrix}$\\
+\\
+Co-variance matrix $\Sigma$ for X, X-Y
+From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$
+\begin{align*}
+    \Sigma_{TZ} &= \begin{bmatrix}
+   1   &   0\\
+   1   &   -1
+\end{bmatrix} \sigma_X^2 
+\begin{bmatrix}
+   1    & \rho \\
+   \rho &  1 
+\end{bmatrix}
+\begin{bmatrix}
+   1   &   1\\
+   0   &   -1
+\end{bmatrix}
+&= \sigma_X^2 \begin{bmatrix}
+    1         &   \rho\\
+    1 - \rho  &    \rho - 1
+\end{bmatrix}
+\begin{bmatrix}
+    1     &   1\\
+    0     & - 1
+\end{bmatrix}\\
+& = \sigma^2 \begin{bmatrix}
+   1         &    1 - \rho\\
+   1 - \rho  &    2 - \rho
+\end{bmatrix}
+\end{align*}
+$\Sigma_{TZ}$ is not a diagonal matrix, so components of TZ are not independent
+
+\subsection{Evaluating option 3}
+X+Y and Y can be written as $\begin{bmatrix}
+    1 & 1 \\
+    0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+    X \\
+    Y
+\end{bmatrix}$\\
+Where T = $\begin{bmatrix}
+    1 & 1 \\
+    0 & 1
+\end{bmatrix}, Z = \begin{bmatrix}
+   X \\
+   Y
+\end{bmatrix}$\\
+\\
+Co-variance matrix $\Sigma$ for X+Y, Y
+From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$\\
+\begin{align*}
+\Sigma_{TZ} &= \begin{bmatrix}
+   1   &   1\\
+   0   &   1
+\end{bmatrix} \sigma_X^2 
+\begin{bmatrix}
+   1    & \rho \\
+   \rho &  1 
+\end{bmatrix}
+\begin{bmatrix}
+   1   &   0\\
+   1   &   1
+\end{bmatrix}\\
+& = \sigma_x^2
+\begin{bmatrix}
+   2 + 2\rho   &  \rho + 1\\
+   \rho + 1    &   1
+\end{bmatrix}
+\end{align*}
+$\Sigma_{TZ}$ is not a diagonal matrix, so components of TZ are not independent
+
+\subsection{Evaluating option 4}
+X+Y and X-Y can be written as 
+$\begin{bmatrix}
+    1 &  1 \\
+    1 & -1
+\end{bmatrix} 
+\begin{bmatrix}
+    X \\
+    Y
+\end{bmatrix}$\\
+From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$
+
+\begin{align*}
+    \Sigma_{TZ} &= \begin{bmatrix}
+   1   &   1\\
+   1   &   -1
+\end{bmatrix} \sigma_X^2 
+\begin{bmatrix}
+   1    & \rho \\
+   \rho &  1 
+\end{bmatrix}
+\begin{bmatrix}
+   1   &   1\\
+   1   &   -1
+\end{bmatrix}\\
+&= \sigma_x^2 \begin{bmatrix}
+    1 + \rho   &   \rho + 1\\
+    1 - \rho   &    \rho - 1
+\end{bmatrix} 
+\begin{bmatrix}
+   1   &   1\\
+   1   &   -1
+\end{bmatrix} \\&=
+\begin{bmatrix}
+   2+2\rho    &     0\\
+   0         &     2-2\rho
+\end{bmatrix}
+\end{align*}
+\textbf{Hence option 4 is correct}
 \end{document}
 
 
