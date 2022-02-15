@@ -336,201 +336,83 @@ Question 53) Suppose (X,Y) follows bivariate normal distribution with means $\mu
 2.) X and X-Y \\
 3.) X+Y and Y \\
 4.) X+Y and X-Y \\
-
-Answer: 4, X+Y and X-Y \\
-\section{Solution:} 
-\subsection{Definition of Bivariate Gaussian and its independency}
-Bi-variate random variables are distribution of normal distribution to two coordinates. are said to be bivariate normal or jointly normal, if $aX+bY$ has normal distribution $\forall$ $a,b \in R$.
-
-Random normal vector Z =
-$\begin{bmatrix}
- X\\
- Y
-\end{bmatrix}$ is Bi-variate when it is jointly normal\\
-Joint PDF of Z is given as\\
-\begin{align*}
-    f_z(Z) &= \frac{1} {2\pi\sqrt{det {\Sigma}}} \quad \exp \left \{  \frac{-1}{2}(z-m) ^ T \Sigma^{-1} (z-m) \right \} \\
-    \textit{Where},\\
-    \textit{m} &= \begin{bmatrix}
-         \mu_x\\
-         \mu_y
-        \end{bmatrix}, \quad, \Sigma = \mathbf{[[Z - E(Z)] [Z - E(Z)]^T]}\\
-    \Sigma = \begin{bmatrix}
-         \sigma_{X}^2               &    \rho \sigma_{X} \sigma_{Y}\\
-         \rho \sigma_{Y} \sigma_{X}  &    \sigma_{Y}^2
-        \end{bmatrix}
-\end{align*}
-
-If X, Y, which  are independent, then they are un-correlated or their co-variances are $\rho \sigma_{Y} \sigma_{X} = 0$ then co-variance matrix becomes a diagonal matrix\\
-\begin{align*}
-    \Sigma = \begin{bmatrix}
-         \sigma_{X}^2                  &     \rho \sigma_{X} \sigma_{Y}\\
-         \rho \sigma_{Y} \sigma_{X}     &      \sigma_{Y}^2
-        \end{bmatrix} 
-        = \begin{bmatrix}
-         \sigma_{X}^2      & 0\\
-          0  & \sigma_{Y}^2
-        \end{bmatrix}
-\end{align*}\\
-\subsection{Co-variance Matrix}
-    $\Sigma = [[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T]$\\
-    \\\textit{When}, \hspace{5pt} $\mathbf{Z^{'} = TZ}$, \hspace{5pt} \textit{Where T is a transformation}\\
-\begin{align*}
-    \Sigma_{TZ} &= [[\mathbf{TZ} - E(\mathbf{TZ})][\mathbf{TZ} - E(\mathbf{TZ})]^T]\\
-    &= [[T\mathbf{Z} - T E(\mathbf{Z})][T\mathbf{Z} - TE(\mathbf{Z})]^T]\\
-    &= [T[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T T^T]\\
-    &= [T[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T T^T]\\
-    &=  [T \Sigma T^T]\\
-    \textit{Where} [[\mathbf{Z} - E(\mathbf{Z})][\mathbf{Z} - E(\mathbf{Z})]^T] = \Sigma
-\end{align*}
-\begin{equation}
-    \Sigma_{TZ} = [T \Sigma T^T]
-\end{equation}
-
-\subsection{Evaluating option 1}:
-Given $\sigma_x = \sigma_y$
-\begin{align*}
-    \Sigma = \begin{bmatrix}
-    \sigma_{X}^2              &  \rho \sigma_{X} \sigma_{X} \\
-    \rho \sigma_{X} \sigma_{X}  &   \sigma_{Y}^2 
-\end{bmatrix} = 
-    \begin{bmatrix}
-    \sigma_{X}^2          &  \rho \sigma_{X}^2 \\
-    \rho \sigma_{X}^2      &   \sigma_{X}^2 
-\end{bmatrix} = \sigma_{X}^2 
-    \begin{bmatrix}
-    1          &  \rho \\
-    \rho       &   1
-\end{bmatrix}
-\end{align*}
-$\Sigma$ is not a diagonal matrix so components of Z in option 1 are not independent
-\subsection{Evaluating option 2}
-X, X-Y can be written as
-$\begin{bmatrix}
-   1   &   0\\
-   1   &   -1
-\end{bmatrix}
-\begin{bmatrix}
-   X \\
-   Y
-\end{bmatrix}$\\
-Where T = $\begin{bmatrix}
-   1   &   0\\
-   1   &   -1
-\end{bmatrix}$, Z = $\begin{bmatrix}
-   X \\
-   Y
-\end{bmatrix}$\\
 \\
-Co-variance matrix $\Sigma$ for X, X-Y
-From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$
-\begin{align*}
-    \Sigma_{TZ} &= \begin{bmatrix}
-   1   &   0\\
-   1   &   -1
-\end{bmatrix} \sigma_X^2 
-\begin{bmatrix}
-   1    & \rho \\
-   \rho &  1 
-\end{bmatrix}
-\begin{bmatrix}
-   1   &   1\\
-   0   &   -1
-\end{bmatrix}
-&= \sigma_X^2 \begin{bmatrix}
-    1         &   \rho\\
-    1 - \rho  &    \rho - 1
-\end{bmatrix}
-\begin{bmatrix}
-    1     &   1\\
-    0     & - 1
-\end{bmatrix}\\
-& = \sigma^2 \begin{bmatrix}
-   1         &    1 - \rho\\
-   1 - \rho  &    2 - \rho
-\end{bmatrix}
-\end{align*}
-$\Sigma_{TZ}$ is not a diagonal matrix, so components of TZ are not independent
-
-\subsection{Evaluating option 3}
-X+Y and Y can be written as $\begin{bmatrix}
-    1 & 1 \\
-    0 & 1
-\end{bmatrix} 
-\begin{bmatrix}
-    X \\
-    Y
-\end{bmatrix}$\\
-Where T = $\begin{bmatrix}
-    1 & 1 \\
-    0 & 1
-\end{bmatrix}, Z = \begin{bmatrix}
-   X \\
-   Y
-\end{bmatrix}$\\
+\section{Question 54}
+(52) Suppose X$\sim$ Cauchy(0,1). Then the distribution of
+$\frac{1-X}{1+X}$ is?
+\section{Solution}
+A continuous random variable X follows \textbf{Cauchy distribution} with parameters $\mu$ and $\lambda$ if its pdf is given by
 \\
-Co-variance matrix $\Sigma$ for X+Y, Y
-From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$\\
-\begin{align*}
-\Sigma_{TZ} &= \begin{bmatrix}
-   1   &   1\\
-   0   &   1
-\end{bmatrix} \sigma_X^2 
-\begin{bmatrix}
-   1    & \rho \\
-   \rho &  1 
-\end{bmatrix}
-\begin{bmatrix}
-   1   &   0\\
-   1   &   1
-\end{bmatrix}\\
-& = \sigma_x^2
-\begin{bmatrix}
-   2 + 2\rho   &  \rho + 1\\
-   \rho + 1    &   1
-\end{bmatrix}
-\end{align*}
-$\Sigma_{TZ}$ is not a diagonal matrix, so components of TZ are not independent
+    \begin{equation*} f(x) =\left\{ \begin{array}{ll} \frac{\lambda}{\pi}\cdot \frac{1}{\lambda^2+(x-\mu)^2}, & \hbox{$-\infty < x< \infty$;} \\ & \hbox{$-\infty < \mu< \infty$, $\lambda>0$;} \\ 0, & \hbox{Otherwise.} \end{array} \right. \end{equation*}
+    
+\\
+The parameter $\mu$ and $\lambda$ are location and scale parameters respectively. 
+\\
+When $\mu$=0 and $\lambda$=1, then the distribution is called \textbf{Standard Cauchy Distribution}. The pdf of standard Cauchy distribution is
+\\
+\begin{equation*} f(x) =\left\{ \begin{array}{ll} \frac{1}{\pi}\cdot \frac{1}{1+x^2}, & \hbox{$-\infty < x< \infty$;} \\ 0, & \hbox{Otherwise.} \end{array} \right. \end{equation*}
 
-\subsection{Evaluating option 4}
-X+Y and X-Y can be written as 
-$\begin{bmatrix}
-    1 &  1 \\
-    1 & -1
-\end{bmatrix} 
-\begin{bmatrix}
-    X \\
-    Y
-\end{bmatrix}$\\
-From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$
+Let,
+\begin{align}
+    Y = \frac{1-X}{1+X}
+\end{align}
+Then, cdf of Y is
+\begin{align}
+    F_{Y}(y) = P(Y \leq y)
+\end{align}
+\begin{align}
+    = P\left(\frac{1-X}{1+X} \leq y\right)
+\end{align}
+\begin{align}
+    = P\left((1-X) \leq y.(1+X)\right)
+\end{align}
+\begin{align}
+    = P\left((1-X) \leq (y+y.X)\right)
+\end{align}
+\begin{align}
+    = P\left((1-y) \leq (X+y.X)\right)
+\end{align}
 
-\begin{align*}
-    \Sigma_{TZ} &= \begin{bmatrix}
-   1   &   1\\
-   1   &   -1
-\end{bmatrix} \sigma_X^2 
-\begin{bmatrix}
-   1    & \rho \\
-   \rho &  1 
-\end{bmatrix}
-\begin{bmatrix}
-   1   &   1\\
-   1   &   -1
-\end{bmatrix}\\
-&= \sigma_x^2 \begin{bmatrix}
-    1 + \rho   &   \rho + 1\\
-    1 - \rho   &    \rho - 1
-\end{bmatrix} 
-\begin{bmatrix}
-   1   &   1\\
-   1   &   -1
-\end{bmatrix} \\&=
-\begin{bmatrix}
-   2+2\rho    &     0\\
-   0         &     2-2\rho
-\end{bmatrix}
-\end{align*}
-\textbf{Hence option 4 is correct}
+\begin{align}
+    = P\left(\frac{1-y}{1+y} \leq X \right)
+\end{align}
+\begin{align}
+    = 1 - P\left(X < \frac{1-y}{1+y}\right)
+\end{align}
+\begin{align}
+    = 1 -  \int_{-\infty}^{\frac{1-y}{1+y}} f(x) \,dx
+\end{align}
+\begin{align}
+    = 1 -  \int_{-\infty}^{\frac{1-y}{1+y}} \frac{1}{\pi}\cdot \frac{1}{1+x^2} \,dx
+\end{align}
+\begin{align}
+    = 1 -  \frac{1}{\pi}\cdot \left[tan^{-1}x\right]_{-\infty}^{\frac{1-y}{1+y}}
+\end{align}
+\begin{align}
+    = 1 -  \frac{1}{\pi}\cdot \left[\left[tan^{-1}x\right]_{-\infty}^{0}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right]
+\end{align}
+\begin{align}
+    = 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right]
+\end{align}
+\begin{align}
+    F_{Y}(y) = 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+tan^{-1}\left({\frac{1-y}{1+y}}\right)\right]
+\end{align} \\
+
+
+The pdf of Y is
+\begin{align}
+    f_{Y}(y) = \frac{d F_{Y}(y)}{dy} = -\frac{1}{\pi}\cdot\frac{d\left(tan^{-1}\left({\frac{1-y}{1+y}}\right)\right)}{dy}
+\end{align}
+\begin{align}
+    = -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\frac{d\left({\frac{1-y}{1+y}}\right)}{dy}
+\end{align}
+\begin{align}
+    = -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\left( -\frac{2}{\left(y + 1\right)^{2}}\right)
+\end{align}
+\begin{align}
+    = \frac{1}{\pi}\cdot \frac{1}{1+y^2}
+\end{align}
+Hence,  Y $\sim$ Cauchy(0,1).\\
 \end{document}
 
 
