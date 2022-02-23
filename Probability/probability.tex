@@ -4,7 +4,7 @@
 \usepackage{gensymb}
 %\doublespacing
 \singlespacing
-
+\usepackage{float}
 %\usepackage{graphicx}
 %\usepackage{amssymb}
 %\usepackage{relsize}
@@ -293,6 +293,7 @@ Probability Questions
 \begin{align}
 P=\begin{matrix} & \begin{matrix}0&&1&&2&&3 && 4\end{matrix} \\\\ \begin{matrix}0\\\\1\\\\2\\\\3\\\\4\end{matrix} & \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\\\  1 / 3 & 1 / 3 & 1 / 3 & 0 & 0 \\\\  0 & 1 / 3 & 1 / 3 & 1 / 3 & 0 \\\\ 0 & 0 & 1 / 3 & 1 / 3 & 1 / 3 \\\\  0 & 0 & 0 & 0 & 1\end{pmatrix}\\\\ \end{matrix}  \nonumber
 \end{align}
+
 \item Consider the function $ f(x) $ defined as $ f(x) = c e^{-x^{4}}, x\in \mathbb{R}$. For what value of c is $f$ a probability density function?
 \begin{enumerate}
 \item $\frac{2}{\Gamma (\frac{1}{4})}$
@@ -300,6 +301,8 @@ P=\begin{matrix} & \begin{matrix}0&&1&&2&&3 && 4\end{matrix} \\\\ \begin{matrix}
 \item $\frac{3}{\Gamma (\frac{1}{3})}$
 \item $\frac{1}{4\Gamma(4) }$
 \end{enumerate}
+
+
 \item A random sample of size 7 is drawn from a distribution with p.d.f. \\ 
 \[
     f_\theta(x)= 
@@ -315,6 +318,7 @@ and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likel
 \item 26
 \item 27
 \end{enumerate}
+
 \item Let $X_1, X_2, X_3, X_4, X_5 $be i.i.d random variables having a continuous distribution function. $\text {Then P}(X_1>X_2>X_3>X_4>X_5|X_1 = \text {max}(X_1,X_2,X_3,X_4,X_5))$ equals
 \begin{enumerate}
 \item $\displaystyle\frac{1}{4}$
@@ -329,90 +333,59 @@ and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likel
 \item X+Y and Y 
 \item X+Y and X-Y 
 \end{enumerate}
+\item Let $X_1, X_2...$ be the sequence of independent normally distributed random variables with mean1 and variance 1. Let N be the poisson random variable with mean 2, independent of $X_1, X_2....$. Then the variance of $X_1 + X_2 + _{........}+X_{N+1}$ is
+\begin{enumerate}
+\item 3
+\item 4
+\item 5
+\item 9
 \end{enumerate}
-Question 53) Suppose (X,Y) follows bivariate normal distribution with means $\mu1  \mu2$, standard deviations $\sigma1$,$\sigma2$ and correlation coefficient $\rho$, where all parameters are un-known. Then, testing Ho: $\sigma1=\sigma2$ is equivalent to testing the independence of  
-\\
-1.) X and Y \\
-2.) X and X-Y \\
-3.) X+Y and Y \\
-4.) X+Y and X-Y \\
-\\
-\section{Question 54}
-(52) Suppose X$\sim$ Cauchy(0,1). Then the distribution of
-$\frac{1-X}{1+X}$ is?
-\section{Solution}
-A continuous random variable X follows \textbf{Cauchy distribution} with parameters $\mu$ and $\lambda$ if its pdf is given by
-\\
-    \begin{equation*} f(x) =\left\{ \begin{array}{ll} \frac{\lambda}{\pi}\cdot \frac{1}{\lambda^2+(x-\mu)^2}, & \hbox{$-\infty < x< \infty$;} \\ & \hbox{$-\infty < \mu< \infty$, $\lambda>0$;} \\ 0, & \hbox{Otherwise.} \end{array} \right. \end{equation*}
-    
-\\
-The parameter $\mu$ and $\lambda$ are location and scale parameters respectively. 
-\\
-When $\mu$=0 and $\lambda$=1, then the distribution is called \textbf{Standard Cauchy Distribution}. The pdf of standard Cauchy distribution is
-\\
-\begin{equation*} f(x) =\left\{ \begin{array}{ll} \frac{1}{\pi}\cdot \frac{1}{1+x^2}, & \hbox{$-\infty < x< \infty$;} \\ 0, & \hbox{Otherwise.} \end{array} \right. \end{equation*}
-
-Let,
-\begin{align}
-    Y = \frac{1-X}{1+X}
-\end{align}
-Then, cdf of Y is
-\begin{align}
-    F_{Y}(y) = P(Y \leq y)
-\end{align}
-\begin{align}
-    = P\left(\frac{1-X}{1+X} \leq y\right)
-\end{align}
-\begin{align}
-    = P\left((1-X) \leq y.(1+X)\right)
-\end{align}
-\begin{align}
-    = P\left((1-X) \leq (y+y.X)\right)
-\end{align}
-\begin{align}
-    = P\left((1-y) \leq (X+y.X)\right)
-\end{align}
-
-\begin{align}
-    = P\left(\frac{1-y}{1+y} \leq X \right)
-\end{align}
-\begin{align}
-    = 1 - P\left(X < \frac{1-y}{1+y}\right)
-\end{align}
-\begin{align}
-    = 1 -  \int_{-\infty}^{\frac{1-y}{1+y}} f(x) \,dx
-\end{align}
-\begin{align}
-    = 1 -  \int_{-\infty}^{\frac{1-y}{1+y}} \frac{1}{\pi}\cdot \frac{1}{1+x^2} \,dx
-\end{align}
-\begin{align}
-    = 1 -  \frac{1}{\pi}\cdot \left[tan^{-1}x\right]_{-\infty}^{\frac{1-y}{1+y}}
-\end{align}
-\begin{align}
-    = 1 -  \frac{1}{\pi}\cdot \left[\left[tan^{-1}x\right]_{-\infty}^{0}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right]
-\end{align}
-\begin{align}
-    = 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right]
-\end{align}
-\begin{align}
-    F_{Y}(y) = 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+tan^{-1}\left({\frac{1-y}{1+y}}\right)\right]
-\end{align} \\
-
-
-The pdf of Y is
-\begin{align}
-    f_{Y}(y) = \frac{d F_{Y}(y)}{dy} = -\frac{1}{\pi}\cdot\frac{d\left(tan^{-1}\left({\frac{1-y}{1+y}}\right)\right)}{dy}
-\end{align}
-\begin{align}
-    = -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\frac{d\left({\frac{1-y}{1+y}}\right)}{dy}
-\end{align}
-\begin{align}
-    = -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\left( -\frac{2}{\left(y + 1\right)^{2}}\right)
-\end{align}
-\begin{align}
-    = \frac{1}{\pi}\cdot \frac{1}{1+y^2}
-\end{align}
-Hence,  Y $\sim$ Cauchy(0,1).\\
+\item Suppose \(r_{1.23}\) and \(r_{1.234}\) are sample multiple correlation coefficients of \(X_1\) on \(X_2,X_3\) and \(X_1\) on \(X_2,X_3,X_4\) respectively. Which of the following is possible?
+\begin{enumerate}
+\item \quad \(r_{1.23} = -0.3\) and \(r_{1.234} = 0.7\)
+\item \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = 0.3\)
+\item \quad \(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)
+\item \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = -0.3\)
+\end{enumerate}
+\item Suppose X$\sim$ Cauchy(0,1). Then the distribution of
+$\frac{1-X}{1+X}$ is?\\
+\item There are two sets of observations on a random vector (X,Y). Consider a simple linear regression model with an intercept for regressing Y on X. Let $\beta_i$ be the least square estimate of the regression coefficient obtained from the $i_{th}$ (i=1,2) set consisting of $n_i $observations $(n_1, n_2 > 2)$. Let $\beta_0$ the least square estimate obtained from the pooled sample size $n_1 + n_2$. If it is known that $ \beta_1 > \beta_2 > 0$ , which of the following statements is true ?\\
+\begin{enumerate}
+\item $\beta_2 < \beta_0 < \beta_1$
+\item $\beta_0 $may lie outside $(\beta_2, \beta_1) $but cannot exceed  $\beta_1+\beta_2 $ 
+\item $\beta_0$ may lie outside $(\beta_2, \beta_1)$ but it cannot be negative
+\item $\beta_0$ can be negative
+\end{enumerate}
+\item  Let X and Y be i.i.d random variables uniformly distributed on (0,4). Then $P(X>Y|X<2Y)$ is\\
+\item A sample of size $n = 2$ is drawn from a population of size $N = 4$ using probability proportional to size
+without replacement sampling scheme, where the probabilities proportional to size are\\
+The probability of inclusion of unit 1 in the sample is
+\begin{table}[htb]
+\centering
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{ |c|c|c|c|c|}
+\hline
+ i  & 1   & 2   & 3   & 4   \\ 
+ \hline
+ P$_i$ & 0.4 & 0.2 & 0.2 & 0.2 \\  
+ \hline
+\end{tabular}}
+\caption{}
+\end{table}
+\begin{enumerate}
+    \item 0.4 
+    \item 0.6
+    \item 0.7
+    \item 0.75
+\end{enumerate}
+\item Suppose that $\begin{pmatrix} X\\ Y \end{pmatrix}$ has a bivariate density $f = \frac{1}{2}f_1 + \frac{1}{2}f_2$, where $f_1$ and $f_2$ are respectively, the densities of bivariate normal distribution $N(\mu_{1},\sum)$, and $N(\mu_{2},\sum)$, with $\mu_{1} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$, $\mu_{2} = \begin{pmatrix} -1 \\ -1 \end{pmatrix}$ and $\sum = \mathbb{I}_{2}$, the $2 \times 2$ identity matrix. Then which of the following is correct ?
+\begin{enumerate}
+\item$X$ and $Y$ are positively correlated
+\item $X$ and $Y$ are negatively correlated
+\item $X$ and $Y$ are uncorrelated but they are not independent
+\item $X$ and $Y$ are independent
+\end{enumerate}
+\end{enumerate}
 \end{document}
 
 
