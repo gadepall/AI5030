@@ -162,7 +162,7 @@ columns=fullflexible
 
 \title{
 %	\logo{
-Probability Questions
+Probability Questions and solutions.
 %	}
 }
 \author{ G V V Sharma$^{*}$% <-this % stops a space
@@ -444,18 +444,12 @@ From Eq. 1 $\Sigma_{TZ} = [T\Sigma T^T]$
    0   &   -1
 \end{bmatrix}
 \end{align*}
-\end{enumerate}
-Question 53) Suppose (X,Y) follows bivariate normal distribution with means $\mu1  \mu2$, standard deviations $\sigma1$,$\sigma2$ and correlation coefficient $\rho$, where all parameters are un-known. Then, testing Ho: $\sigma1=\sigma2$ is equivalent to testing the independence of  
-\\
-1.) X and Y \\
-2.) X and X-Y \\
-3.) X+Y and Y \\
-4.) X+Y and X-Y \\
-\\
-\section{Question 54}
+
+
+\item
 (52) Suppose X$\sim$ Cauchy(0,1). Then the distribution of
 $\frac{1-X}{1+X}$ is?
-\section{Solution}
+\textbf{Solution} \\
 A continuous random variable X follows \textbf{Cauchy distribution} with parameters $\mu$ and $\lambda$ if its pdf is given by
 \\
     \begin{equation*} f(x) =\left\{ \begin{array}{ll} \frac{\lambda}{\pi}\cdot \frac{1}{\lambda^2+(x-\mu)^2}, & \hbox{$-\infty < x< \infty$;} \\ & \hbox{$-\infty < \mu< \infty$, $\lambda>0$;} \\ 0, & \hbox{Otherwise.} \end{array} \right. \end{equation*}
@@ -484,7 +478,7 @@ Then, cdf of Y is
     &= 1 -  \int_{-\infty}^{\frac{1-y}{1+y}} \frac{1}{\pi}\cdot \frac{1}{1+x^2} \,dx\\
     &= 1 -  \frac{1}{\pi}\cdot \left[tan^{-1}x\right]_{-\infty}^{\frac{1-y}{1+y}}\\
     &= 1 -  \frac{1}{\pi}\cdot \left[\left[tan^{-1}x\right]_{-\infty}^{0}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right]\\
-    &= 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right] 
+    &= 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+\left[tan^{-1}x\right]_{0}^{\frac{1-y}{1+y}}\right] \\
 \end{align}
 \begin{align}
     F_{Y}(y) = 1 -  \frac{1}{\pi}\cdot \left[-\frac{\pi}{2}+tan^{-1}\left({\frac{1-y}{1+y}}\right)\right]
@@ -493,12 +487,77 @@ Then, cdf of Y is
 
 The pdf of Y is
 \begin{align}
-    f_{Y}(y) &= \frac{d F_{Y}(y)}{dy} = -\frac{1}{\pi}\cdot\frac{d\left(tan^{-1}\left({\frac{1-y}{1+y}}\right)\right)}{dy}
-             &= -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\frac{d\left({\frac{1-y}{1+y}}\right)}{dy}
-             &= -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\left( -\frac{2}{\left(y + 1\right)^{2}}\right)
+    f_{Y}(y) &= \frac{d F_{Y}(y)}{dy} = -\frac{1}{\pi}\cdot\frac{d\left(tan^{-1}\left({\frac{1-y}{1+y}}\right)\right)}{dy} \\
+             &= -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}} \cdot\frac{d\left({\frac{1-y}{1+y}}\right)}{dy} \\
+             &= -\frac{1}{\pi}\cdot\frac{1}{1+\left(\frac{1-y}{1+y}\right)^{2}}\cdot\left( -\frac{2}{\left(y + 1\right)^{2}}\right) \\
              &= \frac{1}{\pi}\cdot \frac{1}{1+y^2}
 \end{align}
 Hence,  Y $\sim$ Cauchy(0,1).\\
+\item{Question 8}
+
+A random sample of size 7 is drawn from a distribution with p.d.f. \\ 
+\[
+    f_\theta(x)= 
+\begin{cases}
+\frac{1 + x^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\]
+and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likelihood estimation of \(\theta\).
+\\\\
+1.\quad 12 \quad \quad \quad \quad 2.\quad 24 \\ 3.\quad 26 \quad \quad \quad \quad 4.\quad 27
+
+\textbf{Solution} \\
+\paragraph{Maximum likelihood estimation}The goal of maximum likelihood estimation is to make inferences about the population that is most likely to have generated the sample, specifically the joint probability distribution of the random variables
+\paragraph{}
+Associated with each probability distribution is a unique vector \( \theta =\left[\theta _{1},\,\theta _{2},\,\ldots ,\,\theta _{k}\right]^{\mathsf {T}}\) of parameters that index the probability distribution within a parametric family \( \{f(\cdot \,;\theta )\mid \theta \in \Theta \}\), where \( \Theta \)  is called the parameter space, a finite-dimensional subset of Euclidean space.\\
+Evaluating the joint density at the observed data sample \( \mathbf {y} =(y_{1},y_{2},\ldots ,y_{n})\) gives a real-valued function,
+\\\\
+\({\displaystyle L_{n}(\theta )=L_{n}(\theta ;\mathbf {y} )=f_{n}(\mathbf {y} ;\theta )}\)
+\paragraph{}
+which is called the likelihood function. For independent and identically distributed random variables, \( f_{n}(\mathbf {y} ;\theta )\)  will be the product of univariate density functions.\\
+
+The goal of maximum likelihood estimation is to find the values of the model parameters that maximize the likelihood function over the parameter space, that is
+\\\\
+\({\hat {\theta }}={\underset {\theta \in \Theta }{\operatorname {arg\;max} }}\,{\widehat {L}}_{n}(\theta \,;\mathbf {y} )\)
+\paragraph{}
+Intuitively, this selects the parameter values that make the observed data most probable. The specific value \({\hat {\theta }}={\hat {\theta }}_{n}(\mathbf {y} )\in \Theta \) that maximizes the likelihood function \( L_{n}\) is called the maximum likelihood estimate
+\paragraph{Solution}
+Here, p.d.f of distribution is \[
+    f(x)= 
+\begin{cases}
+\frac{1 + x^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\], so for data point \(x_i\) = 12, p.d.f. \(f_\theta(x_i = 12)\)  \[= \begin{cases}
+\frac{1 + 12^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\]
+\[= \begin{cases}
+\frac{145}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\] 
+for every \(x_i\) we can can calculate p.d.f in the same way. \\
+Now, for all random variables joint p.d.f. will be 
+\[f_\theta(x_1,x_2,....,x_7 | \theta)= \begin{cases}
+\frac{1 + x_1}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0 \\
+0,              & otherwise
+\end{cases} * \\
+ \begin{cases}
+\frac{1 + x_2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases} ....
+\] 
+\\ 
+Where, \(x_1 = 12, X_2 = -54\) and so on.
+\\ Here from looking at the options given in question, 27(option 4) is the correct answer because it's the only option that satisfy condition \(-2\theta \leq x \leq \theta , \theta > 0\). In all other cases we'll get joint p.d.f. 0.
+\\\paragraph{}
+\textbf{Hence answer is 27(option 4)}
+\end{enumerate}
 \end{document}
+
+
 
 
